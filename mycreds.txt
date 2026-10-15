@@ -1,0 +1,264 @@
+##############################################################################
+# FAKE CREDENTIALS - SECRET SCANNER TEST FIXTURE
+# Every value below is fabricated and non-functional. It exists only to
+# exercise secret-detection rules (gitleaks, trufflehog, detect-secrets, etc.).
+# Do NOT use in production. Keep this file in an isolated test directory.
+##############################################################################
+
+# --- AWS -------------------------------------------------------------------
+# rule family: aws-access-token (AKIA[0-9A-Z]{16}) + generic secret assignment
+AWS_ACCESS_KEY_ID=AKIAJ7QX2MNP4RT6VWY3
+AWS_SECRET_ACCESS_KEY=q8Zr3Lk9Xv2Tn7Bw5Hd1Fy6acGc4Js0Pa8Mu3Eo2Rt
+aws_session_token = "FwoGZXIvYXdzEBYaDHqa0AP1Zr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3Nv6Xb8Cq1Ya5Zl0Pw"
+
+# --- GitHub ----------------------------------------------------------------
+# rule family: github-pat, github-fine-grained-pat
+GITHUB_TOKEN=ghp_Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0aGe2Uo
+GH_FINE_GRAINED=github_pat_11ABCDEFG0aBcDeFgHiJkL_x7Qm2Zp9Lr4Tv8Bn3Wc6Hd1Fy5Gs0Ja2Ku7Eo4Rt9Mi3Nv6Xb8Cq1Ya5Zl0
+
+# --- GitLab ----------------------------------------------------------------
+# rule family: gitlab-pat
+GITLAB_TOKEN=glpat-Kx9mQ2vL7nR4tB8wZ3cD
+
+# --- Slack -----------------------------------------------------------------
+# rule family: slack-bot-token, slack-webhook-url
+SLACK_BOT_TOKEN=xoxb-123456789012-1234567890123-AbCdEfGhIjKlMnOpQrStUvWx
+SLACK_WEBHOOK=https://hooks.slack.com/services/T01234ABCDE/B01234FGHIJ/aBcDeFgHiJkLmNoPqRsTuVwX
+
+# --- Google ----------------------------------------------------------------
+# rule family: gcp-api-key (AIza[0-9A-Za-z_-]{35})
+GOOGLE_API_KEY=AIzaSyD4kLm9Qr2Tv7Bn3Wc6Hd1Fy5Gs0Ja2Ku7
+
+# --- Stripe ----------------------------------------------------------------
+# rule family: stripe-access-token
+# NOTE: GitHub push protection may block pushes containing this pattern.
+STRIPE_SECRET_KEY=sk_live_51Hq8Zr3Lk9Xv2Tn7Bw5Hd1F
+
+# --- SendGrid / Twilio -----------------------------------------------------
+# rule family: sendgrid-api-token, twilio-api-key
+SENDGRID_API_KEY=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
+TWILIO_API_KEY=SKa1b2c3d4e5f60718293a4b5c6d7e8f90
+
+# --- npm / Hugging Face ----------------------------------------------------
+# rule family: npm-access-token, huggingface-access-token
+NPM_TOKEN=npm_Rt9Mi3Nv6Xb8Cq1Ya5Zl0Pw2Qm7Zp4Lr8Tv3
+HF_TOKEN=hf_Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0aGe2
+
+# --- JWT -------------------------------------------------------------------
+# rule family: jwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.Zr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3
+
+# --- Database connection strings -------------------------------------------
+# rule family: generic credential-in-URI
+DATABASE_URL=postgres://svc_admin:Sup3rS3cr3tP4ssw0rd!@db.internal.example.com:5432/prod
+MONGO_URI=mongodb+srv://appuser:Xk92LmQv7RtB@cluster0.fake123.mongodb.net/orders
+REDIS_URL=rediss://default:Tn7Bw5Hd1Fy6Gc4Js0Pa8@cache.internal.example.com:6380
+JDBC_URL=jdbc:mysql://db.internal.example.com:3306/app?user=root&password=Zr3Lk9Xv2Tn7Bw5
+
+# --- Generic key/secret/password assignments -------------------------------
+# rule family: generic-api-key (keyword + high-entropy value)
+api_key = "9f8e7d6c5b4a39281706f5e4d3c2b1a0"
+client_secret: "Zr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3"
+db_password = "Tr0ub4dor&3xKq9Lm"
+secret_key = 'a1B2c3D4e5F6g7H8i9J0kLmNoPqRsTuV'
+"password": "Hunter2-Fake-Passw0rd!2026"
+auth_token = "7c4f2e9a1b8d3650e7f2a9c4b1d8e3f6"
+
+# --- Basic auth in URL -----------------------------------------------------
+curl -u admin:Sup3rS3cr3tP4ssw0rd https://api.internal.example.com/v1/users
+https://deploy_user:Qm7Zp4Lr8Tv3Kx9m@git.internal.example.com/org/repo.git
+
+# --- Private keys (fabricated bodies, valid PEM framing) -------------------
+# rule family: private-key
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAzr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3Nv6Xb8
+Cq1Ya5Zl0Pw2Qm7Zp4Lr8Tv3Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0aGe2UoK8Xq
+Vt5Ns2Wb9Jh4Gd7Fc1Rm6Yp3Lk8Zx0Qa5Eu2Ti7Oo4Pn9Hb6Vc3Ms1Jd8Kf5Gw
+7Yr2Ta4Ux9Ln0Cz6Bq3Ve8Wm1Ph5Dj2Ng7Fk4Rs9Aa0Ou6Iy3Tt8Xv1Zl5Qe2
+-----END RSA PRIVATE KEY-----
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACBzr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3NvAAAAkFq1Ya5Zl
+0Pw2Qm7Zp4Lr8Tv3Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0aGe2UoK8XqVt5Ns2Wb9Jh4G
+-----END OPENSSH PRIVATE KEY-----
+
+-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIFzr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3NvoAoGCCqGSM49
+AwEHoUQDQgAEq1Ya5Zl0Pw2Qm7Zp4Lr8Tv3Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0
+-----END EC PRIVATE KEY-----
+
+# --- Config-file style -----------------------------------------------------
+[default]
+aws_access_key_id = AKIAJ7QX2MNP4RT6VWY3
+aws_secret_access_key = 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
+
+# --- YAML / JSON style -----------------------------------------------------
+# secrets:
+#   stripe: sk_live_51Hq8Zr3Lk9Xv2Tn7Bw5Hd1F
+#   github: ghp_Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0aGe2Uo
+{
+  "slack_token": "xoxb-123456789012-1234567890123-AbCdEfGhIjKlMnOpQrStUvWx",
+  "private_api_key": "Zr3Lk9Xv2Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3Eo2Rt9Mi3"
+}
+
+# --- Docker / CI -----------------------------------------------------------
+ENV GITHUB_TOKEN=ghp_Kx9mQ2vL7nR4tB8wZ3cD6fH1jP5sY0aGe2Uo
+docker login -u deployer -p Tn7Bw5Hd1Fy6Gc4Js0Pa8Mu3 registry.internal.example.com
+
+##############################################################################
+# END OF FIXTURE
+##############################################################################
+
+// Test file for Checkmarx Cx1 Secrets Detection Rule Validation
+// Contains realistic patterns extracted from customer data with unmasked values
+ 
+// Pattern 1: JSON Key-Value Pairs (ParameterKey)
+"ParameterKey": "ptag_abc123def456ghi789",
+"ParameterKey": "pPriority_2024_secured_token",
+ 
+// Pattern 2: API Title
+"APITitle": "VendorAPI_production_key",
+"APITitle": "VendorServiceEndpoint_v2",
+ 
+// Pattern 3: Variable Assignment with Secret
+_SECRET = "ghp_1234567890abcdefghijklmnopqrstuvwxyz",
+ 
+// Pattern 4: Token URLs (hcpToken)
+salesInquiryLink: 'https://medical.lilly.com/us/products/contact/samples-and-sales-representative-request?hcpToken=A12D_XYZ123456789ABC%27,
+questionLink: 'https://medical.lilly.com/us/products/contact/submit-a-question?hcpToken=A12D_PROD_987654321XYZ',
+ 
+// Pattern 5: Client IDs
+"short_description": "Add my ClientId to the access list. Client ID: 3750_SECURE_IDENTIFIER_12345",
+"short_description": "Want my Client ID added to dev cortex access list. Client ID: 5144_DEV_ACCESS_KEY_98765",
+"short_description": "Want my Client ID added to QA cortex access list. Client ID: c301_QA_ENVIRONMENT_TOKEN",
+ 
+// Pattern 6: Password Fields
+PASSWORD = "MyP@ssw0rd_ProductionEnv_2024",
+"password": "admin_secure_password_12345",
+ 
+// Pattern 7: Bearer Tokens in Curl Requests
+"curl -X POST https://vdac.example.com/user \
+  -H ""Content-Type: application/json"" \
+  -H ""Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"" \",
+ 
+"curl -X POST https://vdac.example.com/check \
+  -H ""Content-Type: application/json"" \
+  -H ""Authorization: Bearer your_production_bearer_token_abc123xyz"" \",
+ 
+// Pattern 8: C Code Secret
+const char* DEFAULT_KEY = "abcd_secure_key_1234567890",
+ 
+// Pattern 9: Password Configuration Commands
+set psystem:password:default_admin_password_2024,
+set psystem:password:production_db_passwd_secure_123,
+ 
+// Pattern 10: Password Hash and Salt
+print.protectDocument.passwordSalt=DyGt_XyZ123_salt_value_abc,
+print.protectDocument.passwordHash=JdGs_hash_value_def456_ghi789,
+ 
+// Pattern 11: Token Reference Key
+"LReqSKey4=
+1550_token_value_xyz123"
+ 
+// Pattern 12: Forward Token (Pagination)
+"nextPage": "https://api.pharmaintelligence.informa.com/v1/feed/drug/program?pagesize=1000&forwardToken=nyhT_forward_token_secure_abc123%22,
+ 
+// Pattern 13: Result Token (JWT-like)
+"resultToken": "eyJl_jwt_encoded_token_abc123def456ghi789",
+ 
+// Pattern 14: AWS IAM Role and Token
+"executionRoleArn": "arn:aws:iam::346644684160:role/service-role/aws_lz_config_service_role",
+"SecurityToken": "DC9E_AWS_SECURITY_TOKEN_TEMPORARY_12345",
+ 
+// Pattern 15: Engine Configuration Token
+Engine:/Script/AndroidFileServerEditor.AndroidFileServerRuntimeSettings:SecurityToken:0=DC_CONFIG_TOKEN_abc123,
+ 
+// Pattern 16: Unreal Engine Metadata
+'+MetadataRedirects=(OldKey="K2Ex_metadata_old_key_123", NewKey="ExposeOnSpawn"),
+ 
+// Pattern 17: Generator Token
+// Generator token: 10BE_generated_token_secure_value_xyz123,
+ 
+// Pattern 18: OAuth Consumer Credentials
+consumer_secret = "OIDC_secret_value_abc123def456ghi789",
+consumer_key = "EZRy_consumer_key_secure_jkl123mno456",
+ 
+// Pattern 19: API Key Patterns
+books_key <- "&api-key=7636_books_api_key_secure_123",
+article_key <- "&api-key=b75d_article_api_key_prod_789",
+movie_key <- "&api-key=xyz123_movie_key_secure_456",
+ 
+// Pattern 20: INI Format Password
+Password = "ggLN_password_value_secure_production",
+;Password = "ggLN_alternate_password_config_value",
+ 
+// Pattern 21: AWS Secrets Manager ARN
+'- !Sub "arn:aws:secretsmanager:us-east-2:${AWS::AccountId}:secret:LUCI_prod_secret_name_12345"',
+'- "arn:aws-cn:secretsmanager:cn-northwest-1:968125615088:secret:lly-prod-secret-name-xyz123"',
+ 
+// Pattern 22: SQL Query Field Names (May trigger on keywords)
+KEY1.DURATION_VOD__C, GEO1.COUNTRY_CODE, AC.LOWEST_LEVEL_ALIGNMENT_ID, KEY1.CALL2_VOD__C,
+ 
+// Pattern 23: Email and Account Information
+"no-email": "Email address is required",
+"user-password": "Password is required",
+"user-blocked": "Your account has been blocked after multiple consecutive login attempts",
+ 
+// Pattern 24: Flask/Web Framework Secrets
+SECRET_KEY = "flask_secret_key_abc123def456ghi789jkl",
+DEBUG = "False",
+DATABASE_PASSWORD = "prod_db_password_secure_2024",
+ 
+// Pattern 25: Environment Variables
+export API_TOKEN="api_token_production_secure_123",
+export DB_PASSWORD="database_password_prod_xyz789",
+export STRIPE_API_KEY="sk_live_stripe_key_abc123def456",
+ 
+// Pattern 26: Docker/Kubernetes Secrets
+POSTGRES_PASSWORD: "postgres_prod_password_secure",
+MYSQL_ROOT_PASSWORD: "mysql_root_password_2024_secure",
+SECRET_API_KEY: "kubernetes_secret_api_key_value",
+ 
+// Pattern 27: Kubernetes Secret Reference
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+data:
+  api-key: YXBpX2tleV9zZWN1cmVfdmFsdWVfYWJjMTIz
+  db-password: ZGJfcGFzc3dvcmRfc2VjdXJlXzEyMzQ1Njc4OTA=
+ 
+// Pattern 28: SSH Private Key Indicator (May be caught by key detection)
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA1234567890abcdefghijklmnopqrstuvwxyzABCD
+-----END RSA PRIVATE KEY-----
+ 
+// Pattern 29: GitHub Token Pattern
+github_token = "ghp_1234567890abcdefghijklmnopqrstuvwxyzABCDEFG",
+ 
+// Pattern 30: AWS Access Key Pattern
+aws_access_key_id = "AKIAIOSFODNN7EXAMPLE",
+aws_secret_access_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+ 
+// Pattern 31: Basic Auth Encoded
+Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM0NTY3OA==",
+ 
+// Pattern 32: Stripe API Keys
+STRIPE_PUBLISHABLE_KEY = "pk_live_abc123def456ghi789jkl",
+STRIPE_SECRET_KEY = "sk_live_xyz789abc123def456ghi",
+ 
+// Pattern 33: SendGrid API Key
+SENDGRID_API_KEY = "SG.abc123def456ghi789jkl_production",
+ 
+// Pattern 34: Firebase Credentials
+"firebase_secret": "AIzaSyAbc123Def456Ghi789Jkl012Mno345Pqr",
+"firebase_token": "abc123def456ghi789jkl012mno345pqr",
+ 
+// Pattern 35: Slack Bot Token
+SLACK_BOT_TOKEN = "xoxb-123456789012-1234567890123-abcdefghijklmnopqrst",
+ 
+// Pattern 36: JWT Bearer Token
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c,
+ 
+// End of Test Patterns File
